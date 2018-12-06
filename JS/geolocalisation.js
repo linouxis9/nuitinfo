@@ -31,13 +31,11 @@ function maPosition(position){
      var  lastLatitude=1*document.getElementById("lastLatitude").innerText;
       var  currentLatitude=1*document.getElementById("currentLatitude").innerText;
       var  currentLongitude=1*document.getElementById("currentLongitude").innerText;
-      console.log("ye s");
+
        dist =Math.cos(currentLongitude-lastLongitude);
 
-      console.log("no");
 
-
-     vraiDist=Math.acos((Math.cos((Math.sin(lastLatitude)*Math.sin(currentLatitude))+(Math.cos(lastLatitude)*Math.cos(currentLatitude)*dist))))
+     vraiDist=6378137*Math.acos(((Math.sin(lastLatitude)*Math.sin(currentLatitude))+(Math.cos(lastLatitude)*Math.cos(currentLatitude)*dist)))
 
      document.getElementById("distance").innerText = vraiDist;
     }
