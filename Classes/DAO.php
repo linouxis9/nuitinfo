@@ -106,10 +106,10 @@ class DAO {
     // lignes de la table.
     // $complementRequete contient une chaîne ajoutée à la requête, par exemple :
     //      ORDER BY champ;
-    //      WHERE champ = 'valeur';
-    public function getIterator($complementRequete = "") {
+    //      WHERE truc=? and machin=?, [chose, bidule];
+    public function getIterator($complementRequete = "", $paramComplement = []) {
         $stmt = $this->pdo->prepare("SELECT * FROM $this->table $complementRequete");
-        return new DAOIterator($stmt, $this->class);
+        return new DAOIterator($this->class, $stmt, $paramComplement);
     }
 
     // Insertion de l'objet
@@ -195,18 +195,21 @@ class DAO {
 class DAOIterator Implements Iterator {
     private $index; // Rang dans la liste itérée
     private $stmt;  // PreparedStatement à utiliser 
+    private $stmtParam;  // Paramètres éventuels
     private $className;  // Nom de la classe des objets à produire
     private $courant; // Élément courant de l'itération
 
-    // Reçoit un PDOStatement, initialisé par prepare, et le nom de la classe des objets à produire
-    public function __construct(PDOStatement $stmt, $className) {
+    // Reçoit le nom de la classe des objets à produire, un PDOStatement initialisé par prepare, et 
+    // des paramètres éventuels
+    public function __construct($className, PDOStatement $stmt, $paramComplement = []) {
         $this->stmt = $stmt;
+        $this->stmtParam = $paramComplement;
         $this->className = $className;
         $this->init();
     }
 
     private function init() {
-        $this->stmt->execute();
+        $this->stmt->execute($this->stmtParam);
         $this->index = -1;
         $this->next();
     }

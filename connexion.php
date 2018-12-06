@@ -1,9 +1,11 @@
 <?php
 // Autochargement des classes
 require_once "autoload.php";
-    session_start() ;
-    $cdao = new AdministrateursDAO(MaBD::getInstance());
 
+    session_start() ;
+    echo "salut1";
+    $cdao = new UsersDAO(MaBD::getInstance());
+        echo "salut2";
     if(isset($_POST['submit']))
     {
       if($cdao->check($_POST['login'],$_POST['password']))
@@ -16,6 +18,7 @@ require_once "autoload.php";
         echo '<p class="erreur"> Veuillez entrer un identifiant correct</p>';
       }
     }
+
 
 ?>
 <!DOCTYPE html>

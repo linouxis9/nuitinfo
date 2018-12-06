@@ -64,8 +64,8 @@ class TableObject implements JsonSerializable {
                 $this->fieldsNamesWithoutKey[] = $name;
     }
 
-    // Affichage par défaut : champs séparés par un ";", type CSV
-    public function __tostring() { return implode(";", $this->fields); }
+    // Affichage par défaut : champs séparés par une tabulation
+    public function __tostring() { return implode("\t", $this->fields); }
 
     // ------- setter et getter -------
     // Utilisation de array_key_exists car isset retourne false pour les valeurs NULL
