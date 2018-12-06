@@ -1,19 +1,23 @@
 /* Feuille de style pour le TP Contacts */
+html{
+  color: white;
+}
 
 body {
-   widh: 976px; margin: 5px auto;
-   font-family: Trebuchet MS, Verdana, sans-serif;
+   background: url("../IMG/background.jpg") no-repeat center center fixed;
+	 background-size: cover;
+   filter
 }
 
 h1 { text-align: center; }
 .centre { text-align: center; }
-table { 
+table {
     border-collapse: collapse;
     margin: 5px auto;
 }
 
-th { color: white; background: #BBBBBB; border: thin solid black;}
-td { font-size: .92em; border: thin solid black; }
+th { color: white; border: thin solid white;}
+td { font-size: .92em; border: thin solid white; }
 th, td {
     padding: 3px 5px;
     vertical-align: middle;
@@ -41,4 +45,4 @@ p.erreur {
 }
 
 /* Pour les auteurs */
-p.binome { text-align: right; font-size: 0.8em; font-style: italic; padding-right: 10px; } 
+p.binome { text-align: right; font-size: 0.8em; font-style: italic; padding-right: 10px; }

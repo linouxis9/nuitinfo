@@ -3,9 +3,7 @@
 require_once "autoload.php";
 
     session_start() ;
-    echo "salut1";
     $cdao = new UsersDAO(MaBD::getInstance());
-        echo "salut2";
     if(isset($_POST['submit']))
     {
       if($cdao->check($_POST['login'],$_POST['password']))
@@ -25,12 +23,12 @@ require_once "autoload.php";
 <html lang="fr">
   <head>
       <meta charset="UTF-8"/>
-      <link rel="stylesheet" type="text/css" href="CSS/Contacts.css"/>
+      <link rel="stylesheet" type="text/css" href="CSS/nuitdelinfo.css"/>
       <title>Authentification</title>
   </head>
 
   <body>
-    <p class="binome"><img src="img/LogoIUT-H.jpg" alt="Logo IUT"/>Réalisée par : GERVASI Nicolas et REYNAUD Tanguy - Groupe 2I</p>
+    <p class="binome"><img src="img/LogoIUT-H.jpg" alt="Logo IUT"/>Réalisée par :</p>
     <br><br>
     <h1 class=titre>Veuillez vous connecter...</h1>
     <br><br>
