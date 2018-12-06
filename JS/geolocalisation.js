@@ -1,6 +1,7 @@
 
-var intervalID = window.setInterval(showPosition, 500);
+var intervalID = window.setInterval(showPosition, 1000);
 
+var intervalID = window.setInterval(hasMoved, 10000);
 
 function showPosition(){
   if(navigator.geolocation)
@@ -29,4 +30,10 @@ function maPosition(position){
 
 
 
+
+}
+
+function hasMoved(){
+if(document.getElementById("lastAltitude").innerText== document.getElementById("currentAltitude").innerText)
+  alert(" Vous ne bougez plus !")
 }
