@@ -1,10 +1,20 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" type="text/css" href = "CSS/bootstrap.css" />
-		<link rel="stylesheet" type="text/css" href = "CSS/stylesheet.css" />
+		<link rel="stylesheet" type="text/css" href = "bootstrap.css" />
+		<script src= "JS/geolocalisation.js"/></script>
 		<title>Téléassistance</title>
 	</head>
-<body>
+
+<body onload="showPosition()" >
+
+	<div hidden id="lastAltitude"></div>
+	<div hidden id="lastLongitude"></div>
+	<div hidden id="lastLatitude"></div>
+
+
+	<div id="currentAltitude"></div>
+	<div id="currentLongitude"></div>
+	<div id="currentLatitude"></div>
 </body>
 </html>
