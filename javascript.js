@@ -1,0 +1,1 @@
+var isAVariable = 0 ;
