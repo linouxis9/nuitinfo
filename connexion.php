@@ -25,7 +25,7 @@ require_once "autoload.php";
 <html lang="fr">
   <head>
       <meta charset="UTF-8"/>
-      <link rel="stylesheet" type="text/css" href="Contacts.css"/>
+      <link rel="stylesheet" type="text/css" href="CSS/Contacts.css"/>
       <title>Authentification</title>
   </head>
 
