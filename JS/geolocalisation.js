@@ -4,7 +4,7 @@ var intervalID = window.setInterval(showPosition, 500);
 
 function showPosition(){
   if(navigator.geolocation)
-    navigator.geolocation.getCurrentPosition(maPosition);
+    navigator.geolocation.watchPosition(maPosition);
 }
 
 function maPosition(position){
@@ -13,10 +13,13 @@ function maPosition(position){
     var latitude= position.coords.latitude;
     var longitude= position.coords.longitude;
 
-    if ( document.getElementById("currentAltitude").innerHTML == null ){
-      document.getElementById("lastAltitude").innerHTML = document.getElementById("currentAltitude").innerHTML ;
-      document.getElementById("lastLongitude").innerHTML = document.getElementById("currentLongitude").innerHTML ;
-      document.getElementById("lastLatitude").innerHTML = document.getElementById("currentLatitude").innerHTML ;
+    if ( document.getElementById("currentAltitude").innerText != "" ){
+
+
+      document.getElementById("lastAltitude").innerHTML = document.getElementById("currentAltitude").innerText;
+      document.getElementById("lastLongitude").innerHTML = document.getElementById("currentLongitude").innerText;
+      document.getElementById("lastLatitude").innerHTML = document.getElementById("currentLatitude").innerText;
+
     }
 
     document.getElementById("currentAltitude").innerHTML = altitude;
@@ -26,7 +29,4 @@ function maPosition(position){
 
 
 
-
 }
-
-var intervalID = window.setInterval(showPosition, 5000);
