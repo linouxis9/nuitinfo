@@ -10,32 +10,62 @@ require_once "autoload.php";
       header("Location: connexion.php");
     }
 
-    echo '<pre>', print_r($users), '</pre>';
+$durationDAO = new DurationDAO(MaBD::getInstance());
+$allDuration = $durationDAO->getAll();
+
+$weatherDAO = new WeatherDAO(MaBD::getInstance());
+$allWeather = $weatherDAO->getAll();
+
+    //echo '<pre>', print_r($users), '</pre>';
 ?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8"/>
         <link rel="stylesheet" type="text/css" href="CSS/nuitdelinfo.css"/>
-        <title>Modèle de page pour le TP Contacts</title>
+        <link rel="stylesheet" href="CSS/bootstrap.css">
+        <title>Accueil</title>
     </head>
 
     <body>
-        <p class="binome"><img src="img/LogoIUT-H.jpg" alt="Logo IUT"/>Réalisée par : GERVASI Nicolas et REYNAUD Tanguy - Groupe 2I</p>
-        <br><br>
-        <h1 class=titre>Gestion des contacts</h1>
-        <br><br>
-        <table>
-            <th>
-              <td>Salut moi c'est nicolas et vous ?</td>
-            </th>
-            <tr>
-              <td>Bonjour</td>
-            </tr>
-            <tr>
-              <td>Bonjour2</td>
-            </tr>
-        </table>
+        <div class="content">
+            <div class="row">
+                <div class="col">
+                    <h1>Accueil</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col align-self-center">
+                    <button type="button" id="buttonCreateForm" class="btn btn-secondary btn-lg">Créer CheckList</button>
+                    <button type="button" id="buttonViewCheckList" class="btn btn-secondary btn-lg">Choisir CheckList</button>
+                    <div id="createForm">
+                        <form id="formCreateCheckList" action="" method="post">
+                            <label for="weather">Météo:</label>
+
+                        </form>
+                    </div>
+                    <div id="chooseCheckList">
+                        Formulaire de choix
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="JS/jQuery.js"></script>
+        <script>
+        $(document).ready(function(){
+            $("#createForm").hide();
+            $("#chooseCheckList").hide();
+            $( "#buttonCreateForm" ).click(function() {
+              $("#createForm").show();
+              $("#chooseCheckList").hide();
+            });
+            $( "#buttonViewCheckList" ).click(function() {
+              $("#createForm").hide();
+              $("#chooseCheckList").show();
+            });
+        });
+        </script>
     </body>
 
 </html>
