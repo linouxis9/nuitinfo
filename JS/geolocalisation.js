@@ -24,9 +24,9 @@ function maPosition(position){
     if ( document.getElementById("currentAltitude").innerText != "" ){
 
 
-      document.getElementById("lastAltitude").innerHTML = document.getElementById("currentAltitude").innerText;
-      document.getElementById("lastLongitude").innerHTML = document.getElementById("currentLongitude").innerText;
-      document.getElementById("lastLatitude").innerHTML = document.getElementById("currentLatitude").innerText;
+      document.getElementById("lastAltitude").innerHTML = document.getElementById("currentAltitude").innerText+" t";
+      document.getElementById("lastLongitude").innerHTML = document.getElementById("currentLongitude").innerText+" t";
+      document.getElementById("lastLatitude").innerHTML = document.getElementById("currentLatitude").innerText+" t";
       var lastLongitude= 1*document.getElementById("currentLongitude").innerText ;
      var  lastLatitude=1*document.getElementById("lastLatitude").innerText;
       var  currentLatitude=1*document.getElementById("currentLatitude").innerText;
