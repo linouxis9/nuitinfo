@@ -8,4 +8,12 @@ class stuffCheckList extends TableObject {
     public function __toString() {
         return $this->nom . " " . $this->prénom . " - " . $this->tél;
     }
+
+    // public function toTableRow() {
+    //     echo "
+    //     <tr>
+    //         <td>$this->
+    //     </tr>
+    //     ";
+    // }
 }

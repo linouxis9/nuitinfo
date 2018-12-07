@@ -3,6 +3,6 @@
 // par héritage de DAO, fournit les méthodes getOne(id), getAll(), insert($objet_Contact), update($objet_Contact) et
 // delete($objet_Contact)
 // On ajoute getEmpty() pour créer un contact vide
-class stuffDAO extends DAO {
-    protected $class = "stuff";
+class StuffDAO extends DAO {
+    protected $class = "Stuff";
 }

@@ -5,4 +5,14 @@
 // On ajoute getEmpty() pour créer un contact vide
 class stuffCheckListDAO extends DAO {
     protected $class = "stuffCheckList";
+
+    public function getAllStuff() {
+      $res = array();
+      $stmt = $this->pdo->prepare("SELECT * FROM CheckListStuff join Stuff using(stuff_id)");
+      $stmt->execute(array());
+      foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $row) {
+        $res[] = $row;
+      }
+      return $res;
+    }
 }

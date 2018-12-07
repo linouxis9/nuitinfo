@@ -3,6 +3,6 @@
 // par héritage de DAO, fournit les méthodes getOne(id), getAll(), insert($objet_Contact), update($objet_Contact) et
 // delete($objet_Contact)
 // On ajoute getEmpty() pour créer un contact vide
-class AreaDAO extends DAO {
-    protected $class = "Area";
+class WeatherDAO extends DAO {
+    protected $class = "Weather";
 }
