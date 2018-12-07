@@ -1,8 +1,8 @@
 <?php
 // Représentation d'un contact
 class checkList extends TableObject {
-    static public $tableName = "checkList";
-    static public $keyFieldsNames = array('id_checkList');
+    static public $tableName = "CheckList";
+    static public $keyFieldsNames = array('checkList_id');
     public $hasAutoIncrementedKey = true;
 
     public function __toString() {

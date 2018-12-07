@@ -49,7 +49,7 @@ class DAO {
         $this->table = $class::$tableName;
         $this->keyNames = $class::$keyFieldsNames;
         $this->keyWhereClause = $this->buildKeyWhereClause();
-    } 
+    }
 
     // Requêtes préparées pour getOne, delete, insert, update. On ne les prépare qu'une fois.
     private $stmtGetOne = null;
@@ -64,7 +64,7 @@ class DAO {
         return $this->pdo->prepare($req);
     }
 
-    // Récupération d'un objet dont on donne la clé (tableau des valeurs composant la clé ou simplement la 
+    // Récupération d'un objet dont on donne la clé (tableau des valeurs composant la clé ou simplement la
     // valeur si la clé n'est pas composée)
     // Retourne NULL si l'objet n'est pas dans la base.
     public function getOne($key) {
@@ -171,7 +171,7 @@ class DAO {
         $fieldList = substr($fieldList, 0, -2);
         $valueList = substr($valueList, 0, -2);
         $req = "INSERT INTO $this->table ($fieldList) VALUES ($valueList)";
-        return $this->pdo->prepare($req); 
+        return $this->pdo->prepare($req);
     }
 
     // Construction du PreparedStatement pour la mise à jour, tous les champs sauf la clé
@@ -183,7 +183,7 @@ class DAO {
         // On enlève la dernière virgule dans la liste
         $fieldList = substr($fieldList, 0, -2);
         $req = "UPDATE $this->table SET $fieldList" . $this->keyWhereClause;
-        return $this->pdo->prepare($req); 
+        return $this->pdo->prepare($req);
     }
 }
 
@@ -194,12 +194,12 @@ class DAO {
 
 class DAOIterator Implements Iterator {
     private $index; // Rang dans la liste itérée
-    private $stmt;  // PreparedStatement à utiliser 
+    private $stmt;  // PreparedStatement à utiliser
     private $stmtParam;  // Paramètres éventuels
     private $className;  // Nom de la classe des objets à produire
     private $courant; // Élément courant de l'itération
 
-    // Reçoit le nom de la classe des objets à produire, un PDOStatement initialisé par prepare, et 
+    // Reçoit le nom de la classe des objets à produire, un PDOStatement initialisé par prepare, et
     // des paramètres éventuels
     public function __construct($className, PDOStatement $stmt, $paramComplement = []) {
         $this->stmt = $stmt;

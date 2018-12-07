@@ -5,4 +5,16 @@
 // On ajoute getEmpty() pour créer un contact vide
 class UsersDAO extends DAO {
     protected $class = "User";
+
+    public function check($login, $mdp) {
+        $BD = $this->getAll();
+        foreach ($BD as $value)
+        {
+          if($value->user_login == $login &&  $value->user_password == $mdp)
+          {
+            return true;
+          }
+        }
+        return NULL;
+    }
 }

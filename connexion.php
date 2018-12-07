@@ -10,7 +10,7 @@ require_once "autoload.php";
       {
         $_SESSION['login'] = $_POST['login'];
         $_SESSION['password']= $_POST['password'];
-        header("Location: Gestion.php");
+        header("Location: index.php");
       }
       else {
         echo '<p class="erreur"> Veuillez entrer un identifiant correct</p>';
