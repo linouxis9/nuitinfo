@@ -21,7 +21,7 @@ function maPosition(position){
       document.getElementById("lastAltitude").innerHTML = document.getElementById("currentAltitude").innerText+" t";
       document.getElementById("lastLongitude").innerHTML = document.getElementById("currentLongitude").innerText+" t";
       document.getElementById("lastLatitude").innerHTML = document.getElementById("currentLatitude").innerText+" t";
-      var lastLongitude= 1*document.getElementById("currentLongitude").innerText ;
+      var lastLongitude= 1*document.getElementById("lastLongitude").innerText ;
      var  lastLatitude=1*document.getElementById("lastLatitude").innerText;
       var  currentLatitude=1*document.getElementById("currentLatitude").innerText;
       var  currentLongitude=1*document.getElementById("currentLongitude").innerText;
@@ -59,7 +59,7 @@ async function launchKeepMoving(){
   else{
   keepMoving = true;
     while(keepMoving){
-      await sleep(30000);
+      await sleep(600);
         if(  document.getElementById("distance").innerHTML == 0)
         alert(" Vous ne bougez plus !");
       }
