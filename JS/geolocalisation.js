@@ -4,9 +4,9 @@
   var dist;
   var vraiDist;
 function geoLoc(){
-var intervalID = window.setInterval(showPosition, 200);
+showPosition();
 
-var intervalID = window.setInterval(hasMoved, 1500);
+var intervalID = window.setInterval(hasMoved, 30000);
 }
 
 function showPosition(){
@@ -51,7 +51,9 @@ function maPosition(position){
 }
 
 function hasMoved(){
+if(document.getElementById("distance").innerText != "" ){
+  if((1*document.getElementById("distance").innerText)<0.5)
+    alert(" Vous ne bougez plus !");
+}
 
-if(document.getElementById("distance").innerText<0.5)
-  alert(" Vous ne bougez plus !");
 }

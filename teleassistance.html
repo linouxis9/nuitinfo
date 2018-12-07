@@ -1,23 +1,28 @@
+<!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<link rel="stylesheet" type="text/css" href = "bootstrap.css" />
-		<script src= "JS/geolocalisation.js"/></script>
-		<title>Téléassistance</title>
-	</head>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href = "bootstrap.css" />
+	<script src= "JS/geolocalisation.js"></script>
+	<title>Téléassistance</title>
+</head>
 
-<body onload="showPosition()" >
+<body onload="geoLoc()" >
+	<h1> Votre position </h1>
 
 	<div hidden id="lastAltitude"></div>
+
+
+
 	<div hidden id="lastLongitude"></div>
 	<div hidden id="lastLatitude"></div>
 
 
-	<p><div id="currentAltitude"></div></p>
-	<p><div id="currentLongitude"></div></p>
-	<p><div id="currentLatitude"></div></p>
+	<h2> Votre altitude :	</h2><p><span id="currentAltitude"></span></p>
+	<h2> Votre longitude :</h2><p><span id="currentLongitude"></span></p>
+	<h2> Votre latitude:	</h2><p><span id="currentLatitude"></span></p>
 
-	<p><div id="distance"> </div></p>
+	<p><span id="distance"> </span></p>
 
 </body>
 </html>
