@@ -8,7 +8,7 @@ class checkListDAO extends DAO {
 
   public function getAllChecklist($checklistID) {
     $res = array();
-    $stmt = $this->pdo->prepare("SELECT * FROM StuffCheckListe join Stuff using(stuff_id) WHERE checklist_id = ?");
+    $stmt = $this->pdo->prepare("SELECT * FROM CheckListeStuff join Stuff using(stuff_id) WHERE checklist_id = ?");
     $stmt->execute(array($checklistID));
     foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $row) {
       $res[] = $row;
