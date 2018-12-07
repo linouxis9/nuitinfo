@@ -16,4 +16,12 @@ class checkListOptionDAO extends DAO {
       return $res;
   }
 
+  public function getOneByWeatherAndArea($weather, $area) {
+      $res = array();
+      $checkListOptionDAO = new CheckListOptionDAO($this->pdo);
+      $stmt = $this->pdo->prepare('SELECT stuff_name from Stuff join CheckListStuff using(stuff_id) join CheckListOption using(checklist_id) where weather_id = ? and area_id = ?;');
+      $stmt->execute([$weather, $area]);
+      return new CheckListOption($stmt->fetch(PDO::FETCH_ASSOC));
+  }
+
 }

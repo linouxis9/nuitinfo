@@ -25,8 +25,14 @@ $allStuff = $stuffDAO->getAll();
 $checkListeOptionDAO = new CheckListOptionDAO(MaBD::getInstance());
 
 
-if(isset($_POST)) {
-    var_dump($_POST);
+if(isset($_POST['submitCreateCheckList'])) {
+    echo '<pre>', var_dump($_POST), '</pre>';
+}
+
+if(isset($_POST['submitChooseCheckList'])) {
+    echo '<pre>', var_dump($_POST), '</pre>';
+    $myList = $checkListeOptionDAO->getOneByWeatherAndArea($_POST['weather'], $_POST['area']);
+
 }
 
     // echo '<pre>', var_dump($allStuff), '</pre>';
@@ -54,7 +60,7 @@ if(isset($_POST)) {
                     <div id="createForm">
                         <form id="formCreateCheckList" action="" method="post">
                             <label>Météo:</label>
-                            <select>
+                            <select name="weather">
                                 <?php
                                     foreach ($allWeather as $weather) {
                                         $weather->toSelectOption();
@@ -62,7 +68,7 @@ if(isset($_POST)) {
                                 ?>
                             </select>
                             <label>Biome:</label>
-                            <select>
+                            <select name="area">
                                 <?php
                                     foreach ($allArea as $area) {
                                         $area->toSelectOption();
@@ -70,7 +76,7 @@ if(isset($_POST)) {
                                 ?>
                             </select>
                             <label>Stuff:</label>
-                            <select>
+                            <select name="stuff">
                                 <?php
                                     foreach ($allStuff as $stuff) {
                                         $stuff->toSelectOption();
@@ -83,7 +89,7 @@ if(isset($_POST)) {
                     <div id="chooseCheckList">
                         <form id="formSelectCheckList" action=""method="post">
                             <label>Météo:</label>
-                            <select>
+                            <select name="weather">
                                 <?php
                                     foreach ($allWeather as $weather) {
                                         $weather->toSelectOption();
@@ -91,7 +97,7 @@ if(isset($_POST)) {
                                 ?>
                             </select>
                             <label>Biome:</label>
-                            <select>
+                            <select  name="area">
                                 <?php
                                     foreach ($allArea as $area) {
                                         $area->toSelectOption();
